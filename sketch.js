@@ -10,7 +10,7 @@ function setup() {
 
     // Attach click events to buttons
     const connectButton = document.getElementById('connectButton');
-    connectButton.mousePressed(connectToDevice);
+    connectButton.addEventListener('click', connectToDevice);
 
     const sendButton = document.getElementById('sendButton');
     sendButton.addEventListener('click', sendData);
