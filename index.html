@@ -60,24 +60,49 @@
     <label><input type="checkbox" id="imuY"> IMU Y</label>
     <label><input type="checkbox" id="imuZ"> IMU Z</label>
 
-    <!-- Send button -->
+    <!-- Buttons -->
+    <button id="connectButton">Connect to Device</button>
     <button id="sendButton">Send</button>
 
     <script>
         let myBLE;
+        let connectedCharacteristic;
 
         // Initialize the p5.ble.js instance
         function setup() {
             noCanvas(); // No need for a canvas in this application
             myBLE = new p5ble();
 
-            // Attach the click event to the Send button
+            // Attach click events to buttons
+            const connectButton = document.getElementById('connectButton');
+            connectButton.addEventListener('click', connectToDevice);
+
             const sendButton = document.getElementById('sendButton');
             sendButton.addEventListener('click', sendData);
         }
 
+        // Function to connect to a BLE device
+        function connectToDevice() {
+            myBLE.connect(serviceUuid, gotCharacteristics);
+        }
+
+        // Callback when characteristics are found
+        function gotCharacteristics(error, characteristics) {
+            if (error) {
+                console.error('Error: ', error);
+                return;
+            }
+            console.log('Characteristics: ', characteristics);
+            connectedCharacteristic = characteristics[0]; // Assuming the first characteristic is used
+        }
+
         // Function to handle sending data to a BLE device
         function sendData() {
+            if (!connectedCharacteristic) {
+                console.error('No connected device. Please connect first.');
+                return;
+            }
+
             const frequency = parseFloat(document.getElementById('frequency').value);
             const granularity = parseFloat(document.getElementById('granularity').value);
             const pressure = document.getElementById('pressure').checked;
@@ -99,9 +124,12 @@
 
             console.log('Data to send:', data);
 
-            // TODO: Implement BLE device connection and send data
-            // Example: myBLE.write(characteristic, JSON.stringify(data));
+            // Send data to the BLE device
+            const dataString = JSON.stringify(data);
+            myBLE.write(connectedCharacteristic, dataString);
         }
+
+        const serviceUuid = '19B10000-E8F2-537E-4F6C-D104768A1214'; // Replace with your BLE service UUID
     </script>
 </body>
 
