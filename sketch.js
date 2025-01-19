@@ -1,4 +1,5 @@
-const serviceUuid = '19b10000-e8f2-537e-4f6c-d104768a1214'; // Replace with your BLE service UUID
+const serviceUuid = '19b10000-0001-537e-4f6c-d104768a1214'; // Replace with your BLE service UUID
+let characteristicUUID = "19b10001-0001-537e-4f6c-d104768a1214";
 
 let myBLE;
 let connectedCharacteristic;
@@ -33,34 +34,33 @@ function gotCharacteristics(error, characteristics) {
 
 // Function to handle sending data to a BLE device
 function sendData() {
-    if (!connectedCharacteristic) {
-        console.error('No connected device. Please connect first.');
-        return;
-    }
+    // if (!connectedCharacteristic) {
+    //     console.error('No connected device. Please connect first.');
+    //     return;
+    // }
 
-    const frequency = parseFloat(document.getElementById('frequency').value);
-    const granularity = parseFloat(document.getElementById('granularity').value);
+    const frequency = document.getElementById('frequency').value;
+    const granularity = document.getElementById('granularity').value;
     const pressure = document.getElementById('pressure').checked;
-    const tilt = document.getElementById('tilt').checked;
-    const imuX = document.getElementById('imuX').checked;
-    const imuY = document.getElementById('imuY').checked;
-    const imuZ = document.getElementById('imuZ').checked;
+    const tilt = Number(document.getElementById('tilt').checked);
+    const imuX = Number(document.getElementById('imuX').checked);
+    const imuY = Number(document.getElementById('imuY').checked);
+    const imuZ = Number(document.getElementById('imuZ').checked);
 
     // Create a data object to send
-    const data = {
-        frequency: frequency,
-        granularity: granularity,
-        pressure: pressure,
-        tilt: tilt,
-        imuX: imuX,
-        imuY: imuY,
-        imuZ: imuZ
-    };
+    // const data = frequency.toString() + "," + granularity.toString() + "," + granularity.toString();
 
+    const data = granularity.toString() + ',' +
+        Number(pressure) + ',' +
+        Number(imuX) + ',' +
+        Number(imuY) + ',' +
+        Number(imuZ) + ',' +
+        Number(tilt) + ',' +
+        frequency.toString() + ';';
     console.log('Data to send:', data);
 
     // Send data to the BLE device
-    const dataString = JSON.stringify(data);
+    const dataString = data.toString();
     myBLE.write(connectedCharacteristic, dataString);
 }
 

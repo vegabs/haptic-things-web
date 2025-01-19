@@ -9,8 +9,7 @@
     <!-- Include p5.js and p5.ble.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"></script>
-    <script src="https://unpkg.com/p5ble@0.0.4/dist/p5.ble.js" type="text/javascript"></script>
-
+    <script src="https://unpkg.com/p5ble@0.0.7/dist/p5.ble.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
@@ -19,23 +18,26 @@
 
     <h1>Haptic Things 😄</h1>
 
-    <!-- Frequency input -->
-    <label for="frequency">Frequency:</label>
-    <input type="number" id="frequency" name="frequency" step="0.1" placeholder="Enter frequency">
+    <button id="connectButton">Connect to Device</button>
+    <button id="disconnectButton">Disconnect</button>
 
     <!-- Granularity input -->
-    <label for="granularity">Granularity:</label>
-    <input type="number" id="granularity" name="granularity" step="0.1" placeholder="Enter granularity">
+    <label for="granularity">*️⃣ Sensor granularity</label>
+    <input type="number" id="granularity" name="granularity" step="10" placeholder="Enter granularity">
 
     <!-- Checkboxes -->
+    <label for="modes">*️⃣ Modalities</label>
     <label><input type="checkbox" id="pressure"> Pressure</label>
-    <label><input type="checkbox" id="tilt"> Tilt</label>
     <label><input type="checkbox" id="imuX"> IMU X</label>
     <label><input type="checkbox" id="imuY"> IMU Y</label>
     <label><input type="checkbox" id="imuZ"> IMU Z</label>
 
+    <!-- Frequency input -->
+    <label><input type="checkbox" id="tilt"> Tilt</label>
+    <label for="frequency">Tilt Frequency:</label>
+    <input type="number" id="frequency" name="frequency" step="10" placeholder="Enter frequency">
+
     <!-- Buttons -->
-    <button id="connectButton">Connect to Device</button>
     <button id="sendButton">Send</button>
 
 
