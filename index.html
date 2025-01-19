@@ -16,31 +16,43 @@
 <body>
     <script src="sketch.js"></script>
 
-    <h1>Haptic Things 😄</h1>
+    <div class="container">
+        <header>
+            <h1>Haptic Things 😄</h1>
+        </header>
 
-    <button id="connectButton">Connect to Device</button>
-    <button id="disconnectButton">Disconnect</button>
+        <section class="connection-controls">
+            <button id="connectButton">Connect to Device</button>
+            <button id="disconnectButton">Disconnect</button>
+        </section>
 
-    <!-- Granularity input -->
-    <label for="granularity">*️⃣ Sensor granularity</label>
-    <input type="number" id="granularity" name="granularity" step="10" placeholder="Enter granularity">
+        <section class="settings">
+            <div class="input-group">
+                <label for="granularity">Responsiveness</label>
+                <input type="number" id="granularity" name="granularity" step="10" placeholder="Enter granularity">
+            </div>
 
-    <!-- Checkboxes -->
-    <label for="modes">*️⃣ Modalities</label>
-    <label><input type="checkbox" id="pressure"> Pressure</label>
-    <label><input type="checkbox" id="imuX"> IMU X</label>
-    <label><input type="checkbox" id="imuY"> IMU Y</label>
-    <label><input type="checkbox" id="imuZ"> IMU Z</label>
+            <div class="input-group">
+                <label for="modes">Modalities</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" id="pressure"> Pressure</label>
+                    <label><input type="checkbox" id="imuX"> IMU X</label>
+                    <label><input type="checkbox" id="imuY"> IMU Y</label>
+                    <label><input type="checkbox" id="imuZ"> IMU Z</label>
+                    <label><input type="checkbox" id="tilt"> Tilt</label>
+                </div>
+            </div>
 
-    <!-- Frequency input -->
-    <label><input type="checkbox" id="tilt"> Tilt</label>
-    <label for="frequency">Tilt Frequency:</label>
-    <input type="number" id="frequency" name="frequency" step="10" placeholder="Enter frequency">
+            <div class="input-group">
+                <label for="frequency">Tilt Frequency</label>
+                <input type="number" id="frequency" name="frequency" step="10" placeholder="Enter frequency">
+            </div>
+        </section>
 
-    <!-- Buttons -->
-    <button id="sendButton">Send</button>
-
-
+        <footer>
+            <button id="sendButton">Send</button>
+        </footer>
+    </div>
 </body>
 
 </html>
