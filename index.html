@@ -28,8 +28,9 @@
 
         <section class="settings">
             <div class="input-group">
-                <label for="granularity">Responsiveness</label>
-                <input type="number" id="granularity" name="granularity" step="10" placeholder="Enter granularity">
+                <label for="granularity">Granularity</label>
+                <input type="number" id="granularity" name="granularity" step="10" defaultValue="10"
+                    placeholder="Enter granularity">
             </div>
 
             <div class="input-group">
@@ -44,8 +45,19 @@
             </div>
 
             <div class="input-group">
-                <label for="frequency">Tilt Frequency</label>
-                <input type="number" id="frequency" name="frequency" step="10" placeholder="Enter frequency">
+                <label for="frequency">Tilt Sampling Rate</label>
+                <select id="frequency" name="frequency">
+                    <option value="12">12.0 Hz</option>
+                    <option value="26">26.0 Hz</option>
+                    <option value="52">52.0 Hz</option>
+                    <option value="104">104.0 Hz</option>
+                    <option value="208">208.0 Hz</option>
+                    <option value="416">416.0 Hz</option>
+                    <option value="833">833.0 Hz</option>
+                    <option value="1667">1667.0 Hz</option>
+                    <option value="3333">3333.0 Hz</option>
+                    <option value="6667">6667.0 Hz</option>
+                </select>
             </div>
         </section>
 
