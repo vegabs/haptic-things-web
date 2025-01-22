@@ -18,7 +18,7 @@
 
     <div class="container">
         <header>
-            <h1>Haptic Things 😄</h1>
+            <h1>Tangibles++</h1>
         </header>
 
         <section class="connection-controls">
@@ -31,16 +31,19 @@
                 <label for="granularity">Granularity</label>
                 <input type="number" id="granularity" name="granularity" step="10" defaultValue="10"
                     placeholder="Enter granularity">
+                <label for="grain-frecuency">Grain Frecuency</label>
+                <input type="number" id="grain-frecuency" name="grain-frecuency" step="10" defaultValue="10"
+                    placeholder="Enter grain frecuency">
             </div>
 
             <div class="input-group">
                 <label for="modes">Modalities</label>
                 <div class="checkbox-group">
-                    <label><input type="checkbox" id="pressure"> Pressure</label>
-                    <label><input type="checkbox" id="imuX"> IMU X</label>
-                    <label><input type="checkbox" id="imuY"> IMU Y</label>
-                    <label><input type="checkbox" id="imuZ"> IMU Z</label>
-                    <label><input type="checkbox" id="tilt"> Tilt</label>
+                    <label><input type="checkbox" id="pressure">Pressure</label>
+                    <label><input type="checkbox" id="imuX">Rotation X</label>
+                    <label><input type="checkbox" id="imuY">Rotation Y</label>
+                    <label><input type="checkbox" id="imuZ">Rotation Z</label>
+                    <label><input type="checkbox" id="tilt">Tilt</label>
                 </div>
             </div>
 
@@ -62,7 +65,7 @@
         </section>
 
         <footer>
-            <button id="sendButton">Send</button>
+            <button id="sendButton">Set parameters</button>
         </footer>
     </div>
 </body>

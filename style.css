@@ -69,12 +69,13 @@ button:active {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    margin-bottom: 15px;
 }
 
 label {
     font-size: 1rem;
     font-weight: 600;
-    color: #555555;
+    color: #0056b3;
 }
 
 input[type="number"] {
@@ -83,7 +84,7 @@ input[type="number"] {
     border-radius: 8px;
     font-size: 1rem;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    width: 90%;
+    width: 95%;
 }
 
 input[type="number"]:focus {
@@ -142,5 +143,45 @@ footer {
     button {
         font-size: 0.8rem;
         padding: 8px;
+    }
+}
+
+/* Styling for Select Dropdown */
+select {
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: white;
+    appearance: none;
+    /* Remove default styles */
+    -webkit-appearance: none;
+    /* For Safari */
+    -moz-appearance: none;
+    /* For Firefox */
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px 16px;
+}
+
+select:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+select option {
+    padding: 10px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    select {
+        font-size: 0.9rem;
+        padding: 10px;
     }
 }

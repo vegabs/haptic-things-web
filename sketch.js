@@ -41,6 +41,7 @@ function sendData() {
 
     const frequency = document.getElementById('frequency').value;
     const granularity = document.getElementById('granularity').value;
+    const grain_frecuency = document.getElementById('grain-frecuency').value;
     const pressure = document.getElementById('pressure').checked;
     const tilt = Number(document.getElementById('tilt').checked);
     const imuX = Number(document.getElementById('imuX').checked);
@@ -51,6 +52,7 @@ function sendData() {
     // const data = frequency.toString() + "," + granularity.toString() + "," + granularity.toString();
 
     const data = granularity.toString() + ',' +
+        grain_frecuency.toString() + ',' +
         Number(pressure) + ',' +
         Number(imuX) + ',' +
         Number(imuY) + ',' +
